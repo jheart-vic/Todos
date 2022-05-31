@@ -8,7 +8,7 @@
 
 ## Live Demo
 
-[Live Demo Link](  https://jheart-vic.github.io/Awesome-Book-ES6/)
+[Live Demo Link](  https://jheart-vic.github.io/Todos/)
 
 ## Getting Started
 
