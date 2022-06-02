@@ -1,10 +1,16 @@
 # Todo-List
+- This is a simple Todo-list, that allows user to 
+- Add a list 
+- Delete a list 
+- Edit a list and Update the list 
+
 
 ## Built With
 
 - HTML
 - CSS
 - JAVASCRIPT
+- Webpack
 
 ## Live Demo
 
@@ -18,6 +24,10 @@ To get a local copy up and running:
 
 **``git clone https://github.com/jheart-vic/Todo-List.git``**
 
+2. use the following commands
+
+**``npm install ``**, 
+**``npm start``**
 
 ## Author
 
@@ -28,6 +38,12 @@ To get a local copy up and running:
 ## Credits
 
 Template from this [MICROVERSE](https://www.microverse.org/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/jheart-vic/Todos/issues).
 
 ## Contributers
 
