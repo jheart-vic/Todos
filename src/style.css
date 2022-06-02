@@ -33,7 +33,7 @@ body {
   background-color: transparent;
 }
 
-.btn {
+.clear-btn {
   width: 100%;
   text-align: center;
   padding: 10px;
@@ -63,4 +63,12 @@ body {
 #heading-span {
   color: grey;
   opacity: 0.7;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.del-btn {
+  cursor: pointer;
 }

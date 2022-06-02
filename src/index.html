@@ -16,15 +16,15 @@
       <h3>Today's To Do</h3>
       <span id="heading-span"><i class="fa fa-recycle" aria-hidden="true"></i></span>
     </div>
-    <div id="form">
-      <input type="text" placeholder="Add to your list...." required>
-      <span id="input-span"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+    <form id="form">
+      <input type="text" id="task-input" placeholder="Add to your list...." required>
+      <span id="input-span"><i class="fa fa-sign-in" id="add-btn" aria-hidden="true"></i></span>
       
-    </div>
+    </form>
     <ul id="list-ul" class="list-wrapper">
       
     </ul>
-    <button type="submit" id="btn" class="btn">Clear all task</button>
+    <button type="submit" id="btn" class="clear-btn">Clear all task</button>
   </div>
 </body>
 </html>
