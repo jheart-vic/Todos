@@ -53,12 +53,6 @@ body {
   justify-content: space-between;
 }
 
-.v-dots {
-  align-self: flex-end;
-  color: grey;
-  opacity: 0.7;
-}
-
 #input-span,
 #heading-span {
   color: grey;
@@ -71,4 +65,7 @@ body {
 
 .del-btn {
   cursor: pointer;
+  align-self: flex-end;
+  color: grey;
+  opacity: 0.7;
 }
