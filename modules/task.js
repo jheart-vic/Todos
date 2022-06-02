@@ -12,7 +12,6 @@ export default class Task {
       const index = this.editId[this.editId.length - 1];
       this.lists.splice(index, 1, list);
       localStorage.setItem('list', JSON.stringify(this.lists));
-      window.location.reload();
     } else {
       list.index = this.lists.length + 1;
       this.lists.push(list);
@@ -20,6 +19,7 @@ export default class Task {
       this.showLists([list]);
       taskInput.value = '';
     }
+    window.location.reload();
     this.isEditing = null;
   }
 
@@ -30,8 +30,12 @@ export default class Task {
       wrapper.innerHTML += `<li class="list-li" id="collection-${index}">
       <div class="list-input">
       <div class="input-box">
-      <input type="checkbox" class="completed" required>
-      <label class="check" id="description-${index}">${item.description}</label>
+      <input type="checkbox" class="completed" required ${
+  item.completed ? 'checked' : ''
+}>
+      <label class="check ${
+  item.completed ? 'checked' : ''
+}" id="description-${index}">${item.description}</label>
       </div>
       <span><i class="fa fa-trash-o del-btn btn-${index}" aria-hidden="true"></i></i></span>
       </div>
@@ -49,9 +53,11 @@ export default class Task {
     const delList = document.querySelectorAll('.del-btn');
     delList.forEach((item) => {
       if (item.classList.contains(deleteClass)) {
-        const index = deleteClass[deleteClass.length - 1];
+        const index = deleteClass[deleteClass.length];
         this.lists.splice(index, 1);
-        this.lists.forEach((value, index) => { value.index = index + 1; });
+        this.lists.forEach((value, index) => {
+          value.index = index + 1;
+        });
         localStorage.setItem('list', JSON.stringify(this.lists));
         item.parentElement.parentElement.parentElement.remove();
       }
@@ -59,7 +65,17 @@ export default class Task {
   }
 
   completed() {
+    const listId = this.parentElement.parentElement.parentElement.id;
+    const index = listId[listId.length - 1];
+    const isElementChecked = this.checked;
     this.nextElementSibling.classList.toggle('checked');
+    const lists = JSON.parse(localStorage.getItem('list'));
+    lists.splice(index, 1, {
+      description: this.nextElementSibling.innerHTML,
+      completed: isElementChecked,
+      index,
+    });
+    localStorage.setItem('list', JSON.stringify(lists));
   }
 
   clearComplete() {
