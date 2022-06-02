@@ -1,8 +1,8 @@
 # Todo-List
 - This is a simple Todo-list, that allows user to 
-> Add a list 
-> Delete a list 
-> Edit a list and Update the list 
+- Add a list 
+- Delete a list 
+- Edit a list and Update the list 
 
 
 ## Built With
