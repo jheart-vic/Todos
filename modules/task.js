@@ -8,6 +8,9 @@ export default class Task {
     const taskInput = document.getElementById('task-input');
     const list = { description: '', completed: false, index: 0 };
     list.description = taskInput.value;
+    if(!list.description){
+      return null
+    }
     if (this.editId) {
       const index = this.editId[this.editId.length - 1];
       this.lists.splice(index, 1, list);
