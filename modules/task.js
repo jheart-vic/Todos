@@ -8,7 +8,9 @@ export default class Task {
     const taskInput = document.getElementById('task-input');
     const list = { description: '', completed: false, index: 0 };
     list.description = taskInput.value;
-    if (this.editId) {
+    if (!list.description) {
+      return null;
+    } if (this.editId) {
       const index = this.editId[this.editId.length - 1];
       this.lists.splice(index, 1, list);
       localStorage.setItem('list', JSON.stringify(this.lists));
@@ -21,6 +23,7 @@ export default class Task {
     }
     window.location.reload();
     this.isEditing = null;
+    return true;
   }
 
   showLists(list) {
