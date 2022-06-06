@@ -24,33 +24,3 @@ module.exports = {
     ],
   },
 };
-
-
-// module.exports = {
-//   mode: "production",
-//   entry: { index: path.resolve(__dirname, "src", "index.js") },
-//   module: {
-//     rules: [{
-//       test: /\.css$/i,
-//       use: ['style-loader', 'css-loader'],
-//     },
-//     ],
-//   },
-//   devServer: {
-//     static: './dist',
-//   },
-//   optimization: {
-//     runtimeChunk: 'single',
-//   },
-//   plugins: [
-//     new HtmlWebpackPlugin({
-//       title: 'Output Management',
-//       template: path.resolve(__dirname, "src", "index.html"),
-//     })
-//   ],
-//   output: {
-//     filename: '[name].bundle.js',
-//     path: path.resolve(__dirname, "dist"),
-//     clean: true,
-//   },
-// };

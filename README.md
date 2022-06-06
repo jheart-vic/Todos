@@ -33,6 +33,8 @@ To get a local copy up and running:
 
 👤 **Victor Akabueze**
 
+- Linkedin [victor-David](linkedin.com/in/victor-chiemerie-302a97230)
+-Twitter [victor-David](https://twitter.com/Victorjheart)
 - Github: [@Victor-David](https://github.com/jheart-vic)
 
 ## Credits
