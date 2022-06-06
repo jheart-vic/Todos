@@ -32,5 +32,9 @@
   "dependencies": {
     "gh-pages": "^4.0.0",
     "lodash": "^4.17.21"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jheart-vic.github.io/Todos/"
   }
 }

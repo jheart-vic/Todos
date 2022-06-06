@@ -14,7 +14,7 @@
 
 ## Live Demo
 
-[Live Demo Link](  https://jheart-vic.github.io/Todos/)
+[Live Demo Link]( https://jheart-vic.github.io/Todos/)
 
 ## Getting Started
 
