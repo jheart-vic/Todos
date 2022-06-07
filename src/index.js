@@ -1,5 +1,6 @@
 import './style.css';
 import Task from '../modules/task.js';
+import '../modules/dragdrop.js';
 
 const task = new Task();
 window.addEventListener('load', task.showLists());

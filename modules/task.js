@@ -51,6 +51,18 @@ export default class Task {
     input.value = description;
     this.editId = id;
   }
+  updateIndex = () => {
+    this.lists.forEach((task, index) => {
+      console.log('hey')
+      task.index = index + 1;
+    });
+  }
+
+  updateList = (oldIndex, newIndex) => {
+    this.lists.splice(newIndex, 0, this.lists.splice(oldIndex, 1)[0]);
+    this.updateIndex();
+    localStorage.setItem('list', JSON.stringify(this.lists));
+  }
 
   delete(deleteClass) {
     const delList = document.querySelectorAll('.del-btn');
