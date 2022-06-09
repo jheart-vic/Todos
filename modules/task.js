@@ -104,7 +104,7 @@ export default class Task {
   clearComplete() {
     const completedTasks = document.querySelectorAll('.checked');
     completedTasks.forEach((task) => {
-      const parentElement = task.parentElement.parentElement.parentElement
+      const { parentElement } = task.parentElement.parentElement;
       this.lists = this.lists.filter((task) => task.completed !== true);
       localStorage.setItem('list', JSON.stringify(this.lists));
       parentElement.remove();
