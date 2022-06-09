@@ -22,7 +22,6 @@ export default class Task {
       taskInput.value = '';
     }
     localStorage.setItem('list', JSON.stringify(this.lists));
-    window.location.reload();
     this.isEditing = null;
     return true;
   }
@@ -105,12 +104,11 @@ export default class Task {
   clearComplete() {
     const completedTasks = document.querySelectorAll('.checked');
     completedTasks.forEach((task) => {
-      const { parentElement } = task.parentElement.parentElement;
-      const filteredList = this.lists.filter((task) => task.completed !== true);
-      localStorage.setItem('list', JSON.stringify(filteredList));
-      this.lists = filteredList;
+      const parentElement = task.parentElement.parentElement.parentElement
+      this.lists = this.lists.filter((task) => task.completed !== true);
+      localStorage.setItem('list', JSON.stringify(this.lists));
       parentElement.remove();
-      this.updateIndex();
     });
+    this.updateIndex();
   }
 }
