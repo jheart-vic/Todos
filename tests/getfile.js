@@ -1,9 +1,9 @@
-import path from 'path'
-import fs from 'fs'
+import path from 'path';
+import fs from 'fs';
 
 const getFileContent = (fileName) => {
-    const html_path = path.join(__dirname, fileName);
-    return fs.readFileSync(html_path);
-}
+  const htmlPath = path.join(__dirname, fileName);
+  return fs.readFileSync(htmlPath);
+};
 
 export default getFileContent;
