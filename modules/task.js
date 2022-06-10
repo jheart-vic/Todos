@@ -20,10 +20,10 @@ export default class Task {
       list.index = this.lists.length + 1;
       this.lists.push(list);
       this.showTasks([list]);
-      taskInput.value = '';
     }
     localStorage.setItem('list', JSON.stringify(this.lists));
-    this.isEditing = null;
+    this.editId = null;
+    taskInput.value = '';
     return true;
   }
 
