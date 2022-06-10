@@ -15,6 +15,7 @@ export default class Task {
       const index = Number(this.editId[this.editId.length - 1]);
       list.index = index + 1;
       this.lists.splice(index, 1, list);
+      document.getElementById(`description-${index}`).innerText = list.description;
     } else {
       list.index = this.lists.length + 1;
       this.lists.push(list);
