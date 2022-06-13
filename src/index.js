@@ -1,21 +1,21 @@
-import "./style.css";
-import Task from "../modules/task.js";
-import "../modules/dragdrop.js";
+import './style.css';
+import Task from '../modules/task.js';
+import '../modules/dragdrop.js';
 
 const task = new Task();
-window.addEventListener("DomContentLoaded", task.showAllTasks());
+window.addEventListener('DomContentLoaded', task.showAllTasks());
 
-const clearBtn = document.querySelector("#btn");
-const addTaskInput = document.getElementById("task-input");
-const addBtn = document.getElementById("add-btn");
+const clearBtn = document.querySelector('#btn');
+const addTaskInput = document.getElementById('task-input');
+const addBtn = document.getElementById('add-btn');
 
-addBtn.addEventListener("click", () => task.addTasks());
+addBtn.addEventListener('click', () => task.addTasks());
 
-addTaskInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
+addTaskInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
     e.preventDefault();
     task.addTasks();
   }
 });
 
-clearBtn.addEventListener("click", () => task.clearComplete());
+clearBtn.addEventListener('click', () => task.clearComplete());
