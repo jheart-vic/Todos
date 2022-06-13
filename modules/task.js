@@ -1,3 +1,5 @@
+import addEventListenersToTheTaskElements from './eventlisteners.js';
+
 export default class Task {
   constructor() {
     this.lists = JSON.parse(localStorage.getItem('list')) || [];
@@ -15,22 +17,22 @@ export default class Task {
       const index = Number(this.editId[this.editId.length - 1]);
       list.index = index + 1;
       this.lists.splice(index, 1, list);
+      document.getElementById(`description-${index}`).innerText = list.description;
     } else {
       list.index = this.lists.length + 1;
       this.lists.push(list);
-      this.showTasks([list]);
-      taskInput.value = '';
+      this.showAllTasks();
     }
     localStorage.setItem('list', JSON.stringify(this.lists));
-    window.location.reload();
-    this.isEditing = null;
+    taskInput.value = '';
+    this.editId = null;
     return true;
   }
 
-  showTasks(list) {
-    const renderedList = list || this.lists;
+  showAllTasks(renderedList = this.lists) {
+    const wrapper = document.getElementById('list-ul');
+    wrapper.innerHTML = '';
     renderedList.forEach((item, index) => {
-      const wrapper = document.getElementById('list-ul');
       wrapper.innerHTML += `<li class="list-li" id="collection-${index}">
       <div class="list-input">
       <div class="input-box">
@@ -45,13 +47,13 @@ export default class Task {
       </div>
       </li>`;
     });
+    addEventListenersToTheTaskElements(this);
   }
 
   editTask(id, description) {
     const input = document.getElementById('task-input');
     input.value = description;
     this.editId = id;
-    // this.updateIndex()
   }
 
   updateIndex = () => {
@@ -59,13 +61,13 @@ export default class Task {
       task.index = index + 1;
     });
     localStorage.setItem('list', JSON.stringify(this.lists));
-  }
+  };
 
   updateList = (oldIndex, newIndex) => {
     this.lists.splice(newIndex, 0, this.lists.splice(oldIndex, 1)[0]);
     this.updateIndex();
     localStorage.setItem('list', JSON.stringify(this.lists));
-  }
+  };
 
   deleteTask(deleteClass) {
     const deleteItems = document.querySelectorAll('.del-btn');
@@ -106,11 +108,10 @@ export default class Task {
     const completedTasks = document.querySelectorAll('.checked');
     completedTasks.forEach((task) => {
       const { parentElement } = task.parentElement.parentElement;
-      const filteredList = this.lists.filter((task) => task.completed !== true);
-      localStorage.setItem('list', JSON.stringify(filteredList));
-      this.lists = filteredList;
+      this.lists = this.lists.filter((task) => task.completed !== true);
+      localStorage.setItem('list', JSON.stringify(this.lists));
       parentElement.remove();
-      this.updateIndex();
     });
+    this.updateIndex();
   }
 }
