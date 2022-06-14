@@ -5,7 +5,7 @@ const task = new Task();
 Sortable.create(document.querySelector('#list-ul'),
   {
     handle: '',
-    animation: 0,
+    animation: 150,
     onUpdate(event) {
       task.updateList(event.oldIndex, event.newIndex);
     },
